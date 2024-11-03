@@ -14,6 +14,11 @@ os.environ["openai_api_key"] = my_secret_key
 
 st.title("Share with us your experience of the latest trip")
 
+
+
+prompt = st.text_input("Tell us about your experience of your latest trip?")
+
+
 ### Create the LLM API object
 #llm = OpenAI(openai_api_key=openai_api_key)
 llm = ChatOpenAI(openai_api_key=my_secret_key, model="gpt-4o-mini")
@@ -95,9 +100,6 @@ langchain.debug = False
 
 response=full_chain.invoke({"userfeed": prompt})
 
-
-
-prompt = st.text_input("Tell us about your experience of your latest trip?")
 
 ### Display
 st.write(
