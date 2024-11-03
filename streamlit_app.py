@@ -9,7 +9,7 @@ from openai import OpenAI
 import os
 
 ### Load your API Key
-my_secret_key= userdata.get('MyOpenAIKey')
+my_secret_key= st.secrets['MyOpenAIKey']
 os.environ["openai_api_key"] = my_secret_key
 
 st.title("Share with us your experience of the latest trip")
