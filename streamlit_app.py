@@ -9,13 +9,13 @@ from openai import OpenAI
 import os
 
 ### Load your API Key
-os.environ["OPENAI_API_KEY"] = st.secrets["OpenAIkey"]
+os.environ["openai_api_key"] = st.secrets["OpenAIkey"]
 
 st.title("Share with us your experience of the latest trip")
 
 ### Create the LLM API object
 #llm = OpenAI(openai_api_key=openai_api_key)
-llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, model="gpt-4o")
+llm = ChatOpenAI(openai_api_key=openai_api_key, model="gpt-4o")
 
 #-----
 ### Create a template to handle the case where the price is not mentioned.
