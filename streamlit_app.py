@@ -81,7 +81,7 @@ Text:
 
 gen_chain = PromptTemplate.from_template(
     """You are a customer experience app managing customer experiences\
-Request the user to enter his feedback above.
+Request the user to enter his feedback in the text box. Nothing else.
 
 Text:
 {text}
