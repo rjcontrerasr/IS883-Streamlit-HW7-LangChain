@@ -1,14 +1,11 @@
 import streamlit as st
-from openai import OpenAI
-
-
-import streamlit as st
 from langchain.llms import OpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain_core.runnables import RunnableBranch
 from langchain_openai import ChatOpenAI
+from openai import OpenAI
 import os
 
 st.title("Share with us your experience of the latest trip")
