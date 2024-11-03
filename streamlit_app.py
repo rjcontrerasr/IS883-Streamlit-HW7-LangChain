@@ -9,7 +9,7 @@ from openai import OpenAI
 import os
 
 ### Load your API Key
-os.environ["openai_api_key"] = st.secrets["OpenAIkey"]
+os.environ["openai_api_key"] = st.secrets["MyOpenAIKey"]
 
 st.title("Share with us your experience of the latest trip")
 
