@@ -15,7 +15,7 @@ st.title("Share with us your experience of the latest trip")
 
 ### Create the LLM API object
 #llm = OpenAI(openai_api_key=openai_api_key)
-llm = ChatOpenAI(openai_api_key=openai_api_key, model="gpt-4o")
+llm = ChatOpenAI(openai_api_key=MyOpenAIKey, model="gpt-4o")
 
 #-----
 ### Create a template to handle the case where the price is not mentioned.
