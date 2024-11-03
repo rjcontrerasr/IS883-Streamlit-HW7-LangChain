@@ -8,6 +8,9 @@ from langchain_openai import ChatOpenAI
 from openai import OpenAI
 import os
 
+### Load your API Key
+os.environ["OPENAI_API_KEY"] = st.secrets["MyOpenAIkey"]
+
 st.title("Share with us your experience of the latest trip")
 
 ### Create the LLM API object
