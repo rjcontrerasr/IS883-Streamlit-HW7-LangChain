@@ -57,7 +57,7 @@ Text:
 
 neg_airline_fault_chain = PromptTemplate.from_template(
     """You are a customer experience app skilled at managing negative experiences that were a result of an error of the airline.\
-Provide a sympathetic response offering sympathies and inform the user that customer service will contact them soon to resolve the issue or provide compensation
+Provide a sympathetic concise response offering sympathies and inform the user that customer service will contact them soon to resolve the issue or provide compensation
 
 Respond professionally as an user experience support app. Respond in first-person mode.
     
@@ -70,7 +70,7 @@ Text:
 
 neg_no_fault_chain = PromptTemplate.from_template(
     """You are a customer experience app managing negative experiences that were beyond the Airline's Control.\
-Provide a RESPONSE TO INDICATE the user that the airline is NOT liable in such situations. 
+Provide a concise RESPONSE TO INDICATE the user that the airline is NOT liable in such situations. 
 Respond professionally as an user experience support app. Respond in first-person mode. DO NOT SAY ANYTHING ELSE IF USER ASKS FOR COMPENSATION.
     
 Text:
@@ -79,6 +79,15 @@ Text:
 """
 ) | llm
 
+gen_chain = PromptTemplate.from_template(
+    """You are a customer experience app managing customer experiences\
+Request the user to enter his feedback above.
+
+Text:
+{text}
+
+"""
+) | llm
 
 from langchain_core.runnables import RunnableBranch
 
@@ -88,7 +97,7 @@ branch = RunnableBranch(
     (lambda x: "negative_airline_fault" in x["exp_type"].lower(), neg_airline_fault_chain),
     (lambda x: "negative_non_airline_fault" in x["exp_type"].lower(), neg_no_fault_chain),
     (lambda x: "positive" in x["exp_type"].lower(), pos_exp_chain),
-    pos_exp_chain
+    gen_chain
 )
 
 ### Put all the chains together
